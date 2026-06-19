@@ -589,10 +589,12 @@ function initChatInterface() {
     const promptButtons = document.querySelectorAll(".prompt-btn");
 
     let API_BASE = "";
-    if (window.location.protocol === "file:") {
-        API_BASE = "http://localhost:8080";
-    } else {
+    const isLocalhost = ["localhost", "127.0.0.1", "192.168.1.12"].includes(window.location.hostname);
+    if (isLocalhost) {
         API_BASE = window.location.origin;
+    } else {
+        // Fallback to the PC's Wi-Fi IP address so mobile devices can access the backend server
+        API_BASE = "http://192.168.1.12:8080";
     }
 
     const answers = {
