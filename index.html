@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Next-generation AI Learning Management System by Islamabad.AI. Master ML, DL, Generative AI, Computer Vision, and MLOps.">
+    <title>Islamabad.AI - Next-Gen AI Learning Platform</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Glows -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo-container" id="nav-logo-btn">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-brain-circuit"></i>
+                </div>
+                <span class="logo-text">Islamabad<span class="highlight">.AI</span></span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#home" class="nav-link active" data-target="landing-page"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="#courses" class="nav-link" data-target="courses-section"><i class="fa-solid fa-graduation-cap"></i> Courses</a>
+                <a href="#dashboard" class="nav-link" data-target="student-dashboard" id="nav-dashboard-link"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+                <a href="#projects" class="nav-link" data-target="project-lab-section"><i class="fa-solid fa-flask"></i> AI Projects</a>
+                <a href="#chat" class="nav-link" data-target="ai-assistant-page"><i class="fa-solid fa-message-bot"></i> AI Assistant</a>
+                <a href="#certificates" class="nav-link" data-target="certificates-section"><i class="fa-solid fa-award"></i> Certificates</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="btn btn-secondary login-btn" id="login-toggle-btn"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
+                <button class="btn btn-primary start-learning-btn" id="start-learning-nav-btn">Start Learning <i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+            
+            <button class="mobile-nav-toggle" id="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="content-area">
+        
+        <!-- ==================== LANDING PAGE VIEW ==================== -->
+        <section id="landing-page" class="view-panel active">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="badge-pill"><span class="badge-dot"></span> Next-Gen AI Academy</div>
+                    <h1 class="hero-title">Master Artificial <br>Intelligence with <br><span class="gradient-text">Islamabad.AI</span></h1>
+                    <p class="hero-subtitle">Learn Machine Learning, Deep Learning, Generative AI, NLP, Computer Vision, and MLOps through industry-focused interactive programs.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-lg" id="explore-courses-btn">Explore Courses <i class="fa-solid fa-arrow-down-long"></i></button>
+                        <button class="btn btn-secondary btn-lg" id="start-learning-hero-btn">Start Learning <i class="fa-solid fa-bolt"></i></button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-num">10k+</span>
+                            <span class="stat-label">Students</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">95%</span>
+                            <span class="stat-label">Placement Rate</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">50+</span>
+                            <span class="stat-label">AI Projects</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <canvas id="neural-canvas"></canvas>
+                    <div class="visual-card floating-card-1 glass-card">
+                        <i class="fa-solid fa-cpu accent-blue"></i>
+                        <div>
+                            <h4>GPU Grid</h4>
+                            <p>Active Cluster: 98.4%</p>
+                        </div>
+                    </div>
+                    <div class="visual-card floating-card-2 glass-card">
+                        <i class="fa-solid fa-bolt accent-cyan"></i>
+                        <div>
+                            <h4>Real-time Mentoring</h4>
+                            <p>AI Assistant Online</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Courses Section -->
+            <section id="courses-section" class="section-padding">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Featured <span class="gradient-text">AI Courses</span></h2>
+                    <p class="section-subtitle">Accelerate your career with our state-of-the-art curriculum developed by AI industry leaders.</p>
+                </div>
+                
+                <div class="course-grid" id="course-cards-container">
+                    <!-- Cards will be dynamically rendered & interactive, sample layouts included -->
+                    <!-- Course Card 1 -->
+                    <div class="course-card glass-card" data-course-id="ml-fundamentals">
+                        <div class="card-image-wrap">
+                            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=600&q=80" alt="Machine Learning Fundamentals" class="course-thumbnail">
+                            <div class="course-tag">Popular</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="course-meta">
+                                <span class="meta-item"><i class="fa-regular fa-clock"></i> 8 weeks</span>
+                                <span class="meta-item"><i class="fa-solid fa-signal-bars"></i> Beginner</span>
+                            </div>
+                            <h3 class="course-title">Machine Learning Fundamentals</h3>
+                            <p class="course-desc">Master linear algebra, regression, decision trees, and regression evaluation metrics.</p>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-info">
+                                    <span>Progress</span>
+                                    <span class="progress-val">80%</span>
+                                </div>
+                                <div class="progress-track">
+                                    <div class="progress-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-secondary btn-sm enroll-btn" data-course-id="ml-fundamentals">Resume Course</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 2 -->
+                    <div class="course-card glass-card" data-course-id="deep-learning">
+                        <div class="card-image-wrap">
+                            <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&q=80" alt="Deep Learning with TensorFlow" class="course-thumbnail">
+                            <div class="course-tag-premium">New</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="course-meta">
+                                <span class="meta-item"><i class="fa-regular fa-clock"></i> 10 weeks</span>
+                                <span class="meta-item"><i class="fa-solid fa-signal-bars"></i> Intermediate</span>
+                            </div>
+                            <h3 class="course-title">Deep Learning with TensorFlow</h3>
+                            <p class="course-desc">Build Neural Networks, CNNs, RNNs, and Transformers for custom vision and sequence modeling.</p>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-info">
+                                    <span>Progress</span>
+                                    <span class="progress-val">45%</span>
+                                </div>
+                                <div class="progress-track">
+                                    <div class="progress-bar" style="width: 45%"></div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-secondary btn-sm enroll-btn" data-course-id="deep-learning">Resume Course</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 3 -->
+                    <div class="course-card glass-card" data-course-id="generative-ai">
+                        <div class="card-image-wrap">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="Generative AI & LLMs" class="course-thumbnail">
+                            <div class="course-tag-trend">Trending</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="course-meta">
+                                <span class="meta-item"><i class="fa-regular fa-clock"></i> 6 weeks</span>
+                                <span class="meta-item"><i class="fa-solid fa-signal-bars"></i> Advanced</span>
+                            </div>
+                            <h3 class="course-title">Generative AI & LLMs</h3>
+                            <p class="course-desc">Fine-tune large language models, implement RAG systems, and deploy Agentic AI tools.</p>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-info">
+                                    <span>Progress</span>
+                                    <span class="progress-val">10%</span>
+                                </div>
+                                <div class="progress-track">
+                                    <div class="progress-bar" style="width: 10%"></div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-secondary btn-sm enroll-btn" data-course-id="generative-ai">Start Course</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 4 -->
+                    <div class="course-card glass-card" data-course-id="computer-vision">
+                        <div class="card-image-wrap">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80" alt="Computer Vision" class="course-thumbnail">
+                        </div>
+                        <div class="card-body">
+                            <div class="course-meta">
+                                <span class="meta-item"><i class="fa-regular fa-clock"></i> 8 weeks</span>
+                                <span class="meta-item"><i class="fa-solid fa-signal-bars"></i> Intermediate</span>
+                            </div>
+                            <h3 class="course-title">Computer Vision</h3>
+                            <p class="course-desc">Learn image recognition, object detection with YOLO, image segmentation, and GANs.</p>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-info">
+                                    <span>Progress</span>
+                                    <span class="progress-val">0%</span>
+                                </div>
+                                <div class="progress-track">
+                                    <div class="progress-bar" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-secondary btn-sm enroll-btn" data-course-id="computer-vision">Enroll Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 5 -->
+                    <div class="course-card glass-card" data-course-id="nlp">
+                        <div class="card-image-wrap">
+                            <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=600&q=80" alt="Natural Language Processing" class="course-thumbnail">
+                        </div>
+                        <div class="card-body">
+                            <div class="course-meta">
+                                <span class="meta-item"><i class="fa-regular fa-clock"></i> 8 weeks</span>
+                                <span class="meta-item"><i class="fa-solid fa-signal-bars"></i> Advanced</span>
+                            </div>
+                            <h3 class="course-title">Natural Language Processing</h3>
+                            <p class="course-desc">Study speech recognition, sequence modeling, BERT, text generation, and custom embeddings.</p>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-info">
+                                    <span>Progress</span>
+                                    <span class="progress-val">0%</span>
+                                </div>
+                                <div class="progress-track">
+                                    <div class="progress-bar" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-secondary btn-sm enroll-btn" data-course-id="nlp">Enroll Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 6 -->
+                    <div class="course-card glass-card" data-course-id="mlops">
+                        <div class="card-image-wrap">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="MLOps & Deployment" class="course-thumbnail">
+                            <div class="course-tag-premium">Recommended</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="course-meta">
+                                <span class="meta-item"><i class="fa-regular fa-clock"></i> 12 weeks</span>
+                                <span class="meta-item"><i class="fa-solid fa-signal-bars"></i> Advanced</span>
+                            </div>
+                            <h3 class="course-title">MLOps & Deployment</h3>
+                            <p class="course-desc">Deploy pipelines with Docker, Kubernetes, MLflow, Airflow, and configure model drift monitors.</p>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-info">
+                                    <span>Progress</span>
+                                    <span class="progress-val">0%</span>
+                                </div>
+                                <div class="progress-track">
+                                    <div class="progress-bar" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-secondary btn-sm enroll-btn" data-course-id="mlops">Enroll Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Project Lab Section -->
+            <section id="project-lab-section" class="section-padding section-border-top">
+                <div class="section-header text-center">
+                    <h2 class="section-title">AI Project <span class="gradient-text">Sandbox</span></h2>
+                    <p class="section-subtitle">Build, test, and publish portfolio-grade AI products directly in your browser.</p>
+                </div>
+
+                <div class="project-grid">
+                    <div class="project-card glass-card">
+                        <div class="project-header">
+                            <span class="project-icon"><i class="fa-solid fa-comments"></i></span>
+                            <span class="project-tag tag-easy">Easy</span>
+                        </div>
+                        <h3>Chatbot Project</h3>
+                        <p class="project-desc">Implement a sequence-to-sequence chatbot using custom dataset tokenizer and simple embeddings.</p>
+                        <div class="project-tech">
+                            <span>PyTorch</span>
+                            <span>NLP</span>
+                            <span>Python</span>
+                        </div>
+                        <div class="project-footer">
+                            <span class="project-status completed"><i class="fa-solid fa-circle-check"></i> Completed</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card glass-card">
+                        <div class="project-header">
+                            <span class="project-icon"><i class="fa-solid fa-image"></i></span>
+                            <span class="project-tag tag-medium">Medium</span>
+                        </div>
+                        <h3>Image Classification</h3>
+                        <p class="project-desc">Train a Convolutional Neural Network (CNN) on CIFAR-10 with data augmentation techniques.</p>
+                        <div class="project-tech">
+                            <span>TensorFlow</span>
+                            <span>Keras</span>
+                            <span>CNN</span>
+                        </div>
+                        <div class="project-footer">
+                            <span class="project-status completed"><i class="fa-solid fa-circle-check"></i> Completed</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card glass-card">
+                        <div class="project-header">
+                            <span class="project-icon"><i class="fa-solid fa-heart-pulse"></i></span>
+                            <span class="project-tag tag-easy">Easy</span>
+                        </div>
+                        <h3>Sentiment Analysis</h3>
+                        <p class="project-desc">Analyze movie review sentiments utilizing LSTM networks and word2vec representation.</p>
+                        <div class="project-tech">
+                            <span>Keras</span>
+                            <span>LSTM</span>
+                            <span>Scikit-Learn</span>
+                        </div>
+                        <div class="project-footer">
+                            <span class="project-status in-progress"><i class="fa-solid fa-spinner fa-spin"></i> In Progress</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card glass-card">
+                        <div class="project-header">
+                            <span class="project-icon"><i class="fa-solid fa-thumbs-up"></i></span>
+                            <span class="project-tag tag-medium">Medium</span>
+                        </div>
+                        <h3>Recommendation System</h3>
+                        <p class="project-desc">Construct a collaborative filtering recommender engine using Matrix Factorization.</p>
+                        <div class="project-tech">
+                            <span>Scipy</span>
+                            <span>Pandas</span>
+                            <span>ALS</span>
+                        </div>
+                        <div class="project-footer">
+                            <span class="project-status in-progress"><i class="fa-solid fa-spinner fa-spin"></i> In Progress</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card glass-card">
+                        <div class="project-header">
+                            <span class="project-icon"><i class="fa-solid fa-binoculars"></i></span>
+                            <span class="project-tag tag-hard">Hard</span>
+                        </div>
+                        <h3>Object Detection</h3>
+                        <p class="project-desc">Implement real-time YOLOv8 object detection on camera streams with custom class maps.</p>
+                        <div class="project-tech">
+                            <span>YOLOv8</span>
+                            <span>OpenCV</span>
+                            <span>PyTorch</span>
+                        </div>
+                        <div class="project-footer">
+                            <span class="project-status not-started"><i class="fa-solid fa-lock"></i> Locked</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card glass-card">
+                        <div class="project-header">
+                            <span class="project-icon"><i class="fa-solid fa-robot"></i></span>
+                            <span class="project-tag tag-hard">Hard</span>
+                        </div>
+                        <h3>LLM Application</h3>
+                        <p class="project-desc">Create a Retrieval-Augmented Generation (RAG) agent capable of parsing PDFs and responding.</p>
+                        <div class="project-tech">
+                            <span>LangChain</span>
+                            <span>OpenAI</span>
+                            <span>ChromaDB</span>
+                        </div>
+                        <div class="project-footer">
+                            <span class="project-status not-started"><i class="fa-solid fa-lock"></i> Locked</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certificate Section -->
+            <section id="certificates-section" class="section-padding section-border-top">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Verified <span class="gradient-text">Credentials</span></h2>
+                    <p class="section-subtitle">Earn industry-standard certificates recognized by global artificial intelligence organizations.</p>
+                </div>
+                
+                <div class="certificate-container glass-card">
+                    <div class="cert-showcase">
+                        <div class="cert-frame">
+                            <div class="cert-inner">
+                                <div class="cert-header">
+                                    <div class="cert-logo">
+                                        <i class="fa-solid fa-brain-circuit"></i>
+                                        <span>Islamabad.AI</span>
+                                    </div>
+                                    <div class="cert-badge">Verified Expert</div>
+                                </div>
+                                <div class="cert-body">
+                                    <span class="cert-title-sub">Certificate of Completion</span>
+                                    <h3 class="cert-student-name">Muhammad Bilal</h3>
+                                    <p class="cert-text">has successfully met all syllabus criteria and masterfully built multiple production-grade models in the course</p>
+                                    <h4 class="cert-course-name">Deep Learning with TensorFlow</h4>
+                                </div>
+                                <div class="cert-footer">
+                                    <div class="cert-date">Date: June 19, 2026</div>
+                                    <div class="cert-sig">
+                                        <span class="sig-line"></span>
+                                        <span>Director of AI, Islamabad.AI</span>
+                                    </div>
+                                    <div class="cert-id">ID: CERT-AI-DL-9823</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cert-details">
+                        <h3>Share Your Success</h3>
+                        <p>Our certificates are fully verified, cryptographic, and integrated with LinkedIn, Google, and major AI companies. Recruiters can verify your skills instantly.</p>
+                        <ul class="cert-features">
+                            <li><i class="fa-solid fa-circle-check"></i> 100% Cryptographically Verified</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Automated LinkedIn Profile Import</li>
+                            <li><i class="fa-solid fa-circle-check"></i> High-Quality PDF Export</li>
+                        </ul>
+                        <div class="cert-actions">
+                            <button class="btn btn-primary" id="download-cert-btn"><i class="fa-solid fa-download"></i> Download PDF</button>
+                            <button class="btn btn-secondary" id="share-linkedin-btn"><i class="fa-brands fa-linkedin"></i> Share on LinkedIn</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Community Section -->
+            <section id="community-section" class="section-padding section-border-top">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Collaborative <span class="gradient-text">AI Ecosystem</span></h2>
+                    <p class="section-subtitle">Join the largest Pakistani AI engineering network, participate in hackathons, and learn together.</p>
+                </div>
+                
+                <div class="community-grid">
+                    <div class="community-card glass-card">
+                        <h3><i class="fa-solid fa-trophy accent-cyan"></i> Leaderboard</h3>
+                        <p>Compete with peer engineers weekly based on project builds, test scores, and code submissions.</p>
+                        <div class="leaderboard-list">
+                            <div class="leaderboard-item">
+                                <span class="lb-rank">1</span>
+                                <span class="lb-name">Zainab Malik</span>
+                                <span class="lb-points">2,940 pts</span>
+                            </div>
+                            <div class="leaderboard-item">
+                                <span class="lb-rank">2</span>
+                                <span class="lb-name">Ali Raza</span>
+                                <span class="lb-points">2,780 pts</span>
+                            </div>
+                            <div class="leaderboard-item user-lb">
+                                <span class="lb-rank">3</span>
+                                <span class="lb-name">Muhammad Bilal (You)</span>
+                                <span class="lb-points">2,560 pts</span>
+                            </div>
+                            <div class="leaderboard-item">
+                                <span class="lb-rank">4</span>
+                                <span class="lb-name">Sarah Khan</span>
+                                <span class="lb-points">2,490 pts</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="community-card glass-card">
+                        <h3><i class="fa-solid fa-code-fork accent-blue"></i> Active Hackathons</h3>
+                        <p>Solve high-stakes challenges organized by top local startups and global AI networks.</p>
+                        <div class="hackathon-card">
+                            <div class="hack-meta">
+                                <span class="hack-status active">Live Now</span>
+                                <span class="hack-prize">$5,000 Prize Pool</span>
+                            </div>
+                            <h4>Islamabad RAG Challenge</h4>
+                            <p>Build the ultimate Urdu-answering knowledge retrieval system using open-weights LLMs.</p>
+                            <button class="btn btn-secondary btn-sm full-width-btn">Join Hackathon</button>
+                        </div>
+                    </div>
+
+                    <div class="community-card glass-card">
+                        <h3><i class="fa-solid fa-users-viewfinder accent-cyan"></i> AI Study Groups</h3>
+                        <p>Meet other learners weekly in virtual or physical co-working hubs across Islamabad.</p>
+                        <ul class="study-groups-list">
+                            <li>
+                                <div class="group-info">
+                                    <strong>Generative Agents Hub</strong>
+                                    <span>Active: 42 members • Islamabad Club</span>
+                                </div>
+                                <span class="badge badge-online">Online</span>
+                            </li>
+                            <li>
+                                <div class="group-info">
+                                    <strong>PyTorch Vision Lab</strong>
+                                    <span>Active: 28 members • Sector F-7</span>
+                                </div>
+                                <span class="badge badge-offline">Saturday</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- ==================== STUDENT DASHBOARD VIEW ==================== -->
+        <section id="student-dashboard" class="view-panel">
+            <div class="dashboard-layout">
+                <!-- Sidebar Nav -->
+                <aside class="dashboard-sidebar glass-card">
+                    <div class="user-profile-preview">
+                        <div class="avatar-wrap">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Avatar">
+                            <span class="online-indicator"></span>
+                        </div>
+                        <h3>Muhammad Bilal</h3>
+                        <p>AI Engineer Candidate</p>
+                    </div>
+                    <nav class="sidebar-links">
+                        <a href="#dash-main" class="sidebar-link active"><i class="fa-solid fa-grid-2"></i> Overview</a>
+                        <a href="#courses" class="sidebar-link" id="dash-courses-trigger"><i class="fa-solid fa-book-open"></i> My Courses</a>
+                        <a href="#chat" class="sidebar-link" id="dash-chat-trigger"><i class="fa-solid fa-comment-dots"></i> AI Mentor</a>
+                        <a href="#projects" class="sidebar-link" id="dash-projects-trigger"><i class="fa-solid fa-code"></i> Project Sandbox</a>
+                        <a href="#certificates" class="sidebar-link" id="dash-cert-trigger"><i class="fa-solid fa-file-certificate"></i> My Certificates</a>
+                    </nav>
+                </aside>
+
+                <!-- Dashboard Main Content -->
+                <div class="dashboard-main-content">
+                    <div class="dashboard-header">
+                        <div>
+                            <h2>Welcome back, <span class="gradient-text">Bilal!</span></h2>
+                            <p>Ready to level up your neural networks skills today?</p>
+                        </div>
+                        <div class="header-widgets">
+                            <div class="widget glass-card">
+                                <span class="w-label">Current Streak</span>
+                                <span class="w-value"><i class="fa-solid fa-fire accent-cyan"></i> 14 Days</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Metrics Row -->
+                    <div class="metrics-grid">
+                        <div class="metric-card glass-card">
+                            <div class="m-header">
+                                <span>AI Skill Score</span>
+                                <i class="fa-solid fa-star-shooting accent-cyan"></i>
+                            </div>
+                            <div class="m-body">
+                                <div class="skill-score-container">
+                                    <svg viewBox="0 0 36 36" class="circular-chart cyan">
+                                        <path class="circle-bg"
+                                            d="M18 2.0845
+                                            a 15.9155 15.9155 0 0 1 0 31.831
+                                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                                        />
+                                        <path class="circle"
+                                            stroke-dasharray="85, 100"
+                                            d="M18 2.0845
+                                            a 15.9155 15.9155 0 0 1 0 31.831
+                                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                                        />
+                                        <text x="18" y="20.35" class="percentage">85</text>
+                                    </svg>
+                                </div>
+                                <p class="metric-meta">Top 5% in Pakistan</p>
+                            </div>
+                        </div>
+
+                        <div class="metric-card glass-card">
+                            <div class="m-header">
+                                <span>Completed Courses</span>
+                                <i class="fa-solid fa-graduation-cap accent-blue"></i>
+                            </div>
+                            <div class="m-body">
+                                <span class="metric-large">3</span>
+                                <p class="metric-meta">2 in progress</p>
+                            </div>
+                        </div>
+
+                        <div class="metric-card glass-card">
+                            <div class="m-header">
+                                <span>Certificates Earned</span>
+                                <i class="fa-solid fa-award accent-cyan"></i>
+                            </div>
+                            <div class="m-body">
+                                <span class="metric-large">2</span>
+                                <p class="metric-meta">1 pending verification</p>
+                            </div>
+                        </div>
+
+                        <div class="metric-card glass-card">
+                            <div class="m-header">
+                                <span>Weekly Study Hours</span>
+                                <i class="fa-solid fa-clock-three accent-blue"></i>
+                            </div>
+                            <div class="m-body">
+                                <span class="metric-large">24.5h</span>
+                                <p class="metric-meta">+3.2h compared to last week</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Double Column Layout -->
+                    <div class="dashboard-columns">
+                        <!-- Chart Card -->
+                        <div class="glass-card chart-card">
+                            <h3>Weekly Learning Analytics</h3>
+                            <p class="card-subtitle">Activity level measured by video watch time & code edits</p>
+                            
+                            <!-- Custom SVG Chart -->
+                            <div class="svg-chart-container">
+                                <svg class="learning-chart" viewBox="0 0 500 200">
+                                    <!-- Grids -->
+                                    <line x1="40" y1="20" x2="480" y2="20" stroke="rgba(255,255,255,0.05)" />
+                                    <line x1="40" y1="60" x2="480" y2="60" stroke="rgba(255,255,255,0.05)" />
+                                    <line x1="40" y1="100" x2="480" y2="100" stroke="rgba(255,255,255,0.05)" />
+                                    <line x1="40" y1="140" x2="480" y2="140" stroke="rgba(255,255,255,0.05)" />
+                                    <line x1="40" y1="180" x2="480" y2="180" stroke="rgba(255,255,255,0.1)" />
+                                    
+                                    <!-- Area Gradient -->
+                                    <defs>
+                                        <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stop-color="var(--accent-cyan)" stop-opacity="0.3"/>
+                                            <stop offset="100%" stop-color="var(--accent-cyan)" stop-opacity="0.0"/>
+                                        </linearGradient>
+                                    </defs>
+
+                                    <!-- Chart Area -->
+                                    <path d="M 40,180 L 40,140 L 113,100 L 186,130 L 260,70 L 333,40 L 406,85 L 480,30 L 480,180 Z" fill="url(#chartGrad)" />
+                                    
+                                    <!-- Chart Line -->
+                                    <path d="M 40,140 L 113,100 L 186,130 L 260,70 L 333,40 L 406,85 L 480,30" 
+                                          fill="none" stroke="var(--accent-cyan)" stroke-width="3" stroke-linecap="round" />
+                                    
+                                    <!-- Chart Dots -->
+                                    <circle cx="40" cy="140" r="5" fill="var(--bg-primary)" stroke="var(--accent-cyan)" stroke-width="2" />
+                                    <circle cx="113" cy="100" r="5" fill="var(--bg-primary)" stroke="var(--accent-cyan)" stroke-width="2" />
+                                    <circle cx="186" cy="130" r="5" fill="var(--bg-primary)" stroke="var(--accent-cyan)" stroke-width="2" />
+                                    <circle cx="260" cy="70" r="5" fill="var(--bg-primary)" stroke="var(--accent-cyan)" stroke-width="2" />
+                                    <circle cx="333" cy="40" r="5" fill="var(--bg-primary)" stroke="var(--accent-cyan)" stroke-width="2" />
+                                    <circle cx="406" cy="85" r="5" fill="var(--bg-primary)" stroke="var(--accent-cyan)" stroke-width="2" />
+                                    <circle cx="480" cy="30" r="5" fill="var(--bg-primary)" stroke="var(--accent-cyan)" stroke-width="2" />
+
+                                    <!-- Labels -->
+                                    <text x="40" y="195" class="chart-text" text-anchor="middle">Mon</text>
+                                    <text x="113" y="195" class="chart-text" text-anchor="middle">Tue</text>
+                                    <text x="186" y="195" class="chart-text" text-anchor="middle">Wed</text>
+                                    <text x="260" y="195" class="chart-text" text-anchor="middle">Thu</text>
+                                    <text x="333" y="195" class="chart-text" text-anchor="middle">Fri</text>
+                                    <text x="406" y="195" class="chart-text" text-anchor="middle">Sat</text>
+                                    <text x="480" y="195" class="chart-text" text-anchor="middle">Sun</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Right Column widgets -->
+                        <div class="dashboard-side-column">
+                            <!-- Recommendations -->
+                            <div class="glass-card dashboard-card">
+                                <h3>Personalized for You</h3>
+                                <div class="recommendation-item">
+                                    <div class="rec-icon"><i class="fa-solid fa-stars accent-cyan"></i></div>
+                                    <div class="rec-info">
+                                        <h4>Next Step in Deep Learning</h4>
+                                        <p>Watch "Introduction to Attention Mechanisms & Transformers" (18 mins)</p>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm" id="rec-watch-btn"><i class="fa-solid fa-play"></i></button>
+                                </div>
+                                <div class="recommendation-item">
+                                    <div class="rec-icon"><i class="fa-solid fa-flask accent-blue"></i></div>
+                                    <div class="rec-info">
+                                        <h4>Unfinished Project</h4>
+                                        <p>Sentiment Analysis: Finish LSTM epoch configuration to unlock leaderboard points.</p>
+                                    </div>
+                                    <button class="btn btn-secondary btn-sm" id="rec-proj-btn">Resume</button>
+                                </div>
+                            </div>
+
+                            <!-- Assignments -->
+                            <div class="glass-card dashboard-card">
+                                <h3>Upcoming Assignments</h3>
+                                <div class="assignment-item">
+                                    <div class="assign-meta">
+                                        <span class="assign-date">June 23</span>
+                                        <span class="badge badge-warning">Due soon</span>
+                                    </div>
+                                    <h4>Implement Transformers from Scratch</h4>
+                                    <p>Deep Learning with TensorFlow • Module 5</p>
+                                </div>
+                                <div class="assignment-item">
+                                    <div class="assign-meta">
+                                        <span class="assign-date">June 29</span>
+                                        <span class="badge badge-info">Open</span>
+                                    </div>
+                                    <h4>Design a Vector Database Indexing Pipeline</h4>
+                                    <p>Generative AI & LLMs • Module 3</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== COURSE DETAIL VIEW ==================== -->
+        <section id="course-detail-page" class="view-panel">
+            <button class="btn-back" id="back-to-courses-btn"><i class="fa-solid fa-arrow-left"></i> Back to Courses</button>
+            
+            <div class="course-detail-hero glass-card">
+                <div class="hero-left">
+                    <span class="course-badge">Intermediate</span>
+                    <h2 class="course-detail-title" id="course-det-title">Deep Learning with TensorFlow</h2>
+                    <p class="course-detail-tagline">Build Neural Networks, CNNs, RNNs, and Transformers for custom vision and sequence modeling applications.</p>
+                    <div class="course-detail-meta">
+                        <span><i class="fa-solid fa-user-tie"></i> Dr. Adnan Mahmood</span>
+                        <span><i class="fa-solid fa-star"></i> 4.9 (1,240 ratings)</span>
+                        <span><i class="fa-solid fa-globe"></i> English / Urdu subtitles</span>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <div class="detail-card glass-card">
+                        <div class="video-preview-box">
+                            <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=600&q=80" alt="Video cover" class="video-cover" id="course-det-img">
+                            <button class="video-play-btn" id="play-video-btn"><i class="fa-solid fa-play"></i></button>
+                        </div>
+                        <div class="detail-card-body">
+                            <span class="price-tag">Free Enrollment</span>
+                            <button class="btn btn-primary full-width-btn" id="course-action-btn">Resume Course <i class="fa-solid fa-chevron-right"></i></button>
+                            <p class="card-terms">Includes certificate & sandbox environment</p>
+                            <div class="includes-list">
+                                <span><i class="fa-regular fa-file-video"></i> 24 hours on-demand video</span>
+                                <span><i class="fa-regular fa-code"></i> 12 hands-on coding projects</span>
+                                <span><i class="fa-regular fa-file-lines"></i> 18 downloadable articles</span>
+                                <span><i class="fa-solid fa-certificate"></i> Verified Certificate of Competency</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-detail-body">
+                <div class="curriculum-column">
+                    <h3>Course Syllabus</h3>
+                    
+                    <div class="syllabus-accordion">
+                        <div class="syllabus-item active">
+                            <div class="syllabus-header">
+                                <h4>Module 1: Introduction to Tensors & Neural Nets</h4>
+                                <span class="syllabus-icon"><i class="fa-solid fa-chevron-down"></i></span>
+                            </div>
+                            <div class="syllabus-content">
+                                <ul class="lesson-list">
+                                    <li class="lesson-completed"><i class="fa-solid fa-circle-check"></i> 1.1 Tensor Math Operations <span class="duration">15 mins</span></li>
+                                    <li class="lesson-completed"><i class="fa-solid fa-circle-check"></i> 1.2 Multi-Layer Perceptrons from scratch <span class="duration">28 mins</span></li>
+                                    <li class="lesson-completed"><i class="fa-solid fa-circle-check"></i> 1.3 Backpropagation mathematically <span class="duration">35 mins</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="syllabus-item">
+                            <div class="syllabus-header">
+                                <h4>Module 2: Convolutional Neural Networks (CNNs)</h4>
+                                <span class="syllabus-icon"><i class="fa-solid fa-chevron-right"></i></span>
+                            </div>
+                            <div class="syllabus-content">
+                                <ul class="lesson-list">
+                                    <li><i class="fa-solid fa-circle"></i> 2.1 Convolutional operations & pooling <span class="duration">22 mins</span></li>
+                                    <li><i class="fa-solid fa-circle"></i> 2.2 Replicating AlexNet & VGG-16 <span class="duration">40 mins</span></li>
+                                    <li><i class="fa-solid fa-circle"></i> 2.3 Image Classification Lab project <span class="duration">60 mins</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="syllabus-item">
+                            <div class="syllabus-header">
+                                <h4>Module 3: Sequence Modeling & RNNs</h4>
+                                <span class="syllabus-icon"><i class="fa-solid fa-chevron-right"></i></span>
+                            </div>
+                            <div class="syllabus-content">
+                                <ul class="lesson-list">
+                                    <li><i class="fa-solid fa-circle"></i> 3.1 Understanding LSTMs and GRUs <span class="duration">30 mins</span></li>
+                                    <li><i class="fa-solid fa-circle"></i> 3.2 Sentiment Classification on text streams <span class="duration">45 mins</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="syllabus-item">
+                            <div class="syllabus-header">
+                                <h4>Module 4: Modern Transformer Architectures</h4>
+                                <span class="syllabus-icon"><i class="fa-solid fa-chevron-right"></i></span>
+                            </div>
+                            <div class="syllabus-content">
+                                <ul class="lesson-list">
+                                    <li><i class="fa-solid fa-circle"></i> 4.1 Self-Attention and Multi-Head Attention <span class="duration">50 mins</span></li>
+                                    <li><i class="fa-solid fa-circle"></i> 4.2 Building a Transformer Encoder <span class="duration">75 mins</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== AI ASSISTANT CHAT VIEW ==================== -->
+        <section id="ai-assistant-page" class="view-panel">
+            <div class="chat-layout">
+                <!-- Chat Prompt Sidebar -->
+                <aside class="chat-sidebar glass-card">
+                    <div class="sidebar-header">
+                        <h3><i class="fa-solid fa-robot accent-cyan"></i> AI Mentor</h3>
+                        <p>Ask anything about your syllabus, coding scripts, or career paths.</p>
+                    </div>
+                    <div class="prompts-list">
+                        <h4>Suggested Tasks</h4>
+                        <button class="prompt-btn" data-prompt="code"><i class="fa-solid fa-code"></i> Code Explanation</button>
+                        <button class="prompt-btn" data-prompt="resume"><i class="fa-solid fa-file-user"></i> Resume Review</button>
+                        <button class="prompt-btn" data-prompt="interview"><i class="fa-solid fa-circle-question"></i> Interview Prep</button>
+                        <button class="prompt-btn" data-prompt="career"><i class="fa-solid fa-compass"></i> Career Guidance</button>
+                        <button class="prompt-btn" data-prompt="project"><i class="fa-solid fa-lightbulb"></i> Project Suggestions</button>
+                    </div>
+                </aside>
+
+                <!-- Chat Main Window -->
+                <div class="chat-window-wrap glass-card">
+                    <div class="chat-header">
+                        <div class="active-agent">
+                            <span class="pulse-indicator"></span>
+                            <div>
+                                <h4>Islamabad.AI Mentor</h4>
+                                <p>Generative AI model • Responsive 24/7</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Message Area -->
+                    <div class="chat-messages" id="chat-messages-container">
+                        <!-- Message 1 -->
+                        <div class="chat-bubble ai">
+                            <div class="bubble-avatar"><i class="fa-solid fa-robot"></i></div>
+                            <div class="bubble-content">
+                                <p>Assalam-o-Alaikum! I am your Islamabad.AI interactive mentor. I can help explain complex equations, debug TensorFlow/PyTorch architectures, review your resume for top startups, or suggest AI roadmap paths. What would you like to explore today?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input Area -->
+                    <div class="chat-input-area">
+                        <input type="text" id="chat-input-field" placeholder="Ask AI questions, request code reviews, or design roadmaps..." autocomplete="off">
+                        <button class="send-btn" id="chat-send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-brain-circuit"></i>
+                    </div>
+                    <span class="logo-text">Islamabad<span class="highlight">.AI</span></span>
+                </div>
+                <p>Building Pakistan's next generation of elite Artificial Intelligence researchers and systems engineers.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-nav">
+                <h4>Navigation</h4>
+                <a href="#home">Home</a>
+                <a href="#courses">Courses</a>
+                <a href="#projects">Project Sandbox</a>
+                <a href="#certificates">Certificates</a>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>Stay Updated</h4>
+                <p>Get notified about new course cohorts, hackathons, and local AI events.</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button class="btn btn-primary" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Islamabad.AI. All rights reserved. Created for AI/ML Internship Presentation.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
