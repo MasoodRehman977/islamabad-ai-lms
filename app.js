@@ -588,9 +588,12 @@ function initChatInterface() {
     const messagesContainer = document.getElementById("chat-messages-container");
     const promptButtons = document.querySelectorAll(".prompt-btn");
 
-    const API_BASE = (window.location.protocol === "file:" || !["localhost", "127.0.0.1"].includes(window.location.hostname))
-        ? "http://127.0.0.1:8080"
-        : "";
+    let API_BASE = "";
+    if (window.location.protocol === "file:") {
+        API_BASE = "http://localhost:8080";
+    } else {
+        API_BASE = window.location.origin;
+    }
 
     const answers = {
         code: `Here is an explanation of the self-attention formula in Transformers:
