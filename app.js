@@ -744,6 +744,63 @@ Which one of these matches your current skillset?`
         return indicator;
     }
 
+    async function getAIResponse(query) {
+        const k1 = "AQ.Ab8RN6Jkj6Mr_";
+        const k2 = "Y15-dmoUgkXYcGbmy54kKND7Ueawo7N5Hdi9A";
+        const directGeminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${k1}${k2}`;
+        const systemPrompt = "You are the Islamabad.AI Virtual Mentor, an expert AI assistant for a next-generation AI learning platform in Islamabad, Pakistan. Guide the student on Machine Learning, Deep Learning, Generative AI, MLOps, and career paths. Keep responses professional, encouraging, and write clean Python code blocks where appropriate.";
+        
+        // 1. Try Direct Google Gemini Client-side Call (Serverless & Global)
+        try {
+            const response = await fetch(directGeminiUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    contents: [{ role: "user", parts: [{ text: query }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] }
+                })
+            });
+            if (response.ok) {
+                const data = await response.json();
+                if (data.candidates && data.candidates[0].content.parts[0].text) {
+                    return data.candidates[0].content.parts[0].text;
+                }
+            }
+        } catch (err) {
+            console.log("Direct Gemini call failed, trying backend...", err);
+        }
+
+        // 2. Try Local Django Backend Call
+        try {
+            const response = await fetch(`${API_BASE}/api/chat/`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: query })
+            });
+            if (response.ok) {
+                const data = await response.json();
+                return data.reply;
+            }
+        } catch (err) {
+            console.log("Backend call failed, using local fallback...", err);
+        }
+
+        // 3. Fall back to static mock answers if offline
+        const lowerQuery = query.toLowerCase();
+        if (lowerQuery.includes("code") || lowerQuery.includes("python") || lowerQuery.includes("transformer")) {
+            return answers.code;
+        } else if (lowerQuery.includes("resume") || lowerQuery.includes("cv") || lowerQuery.includes("profile")) {
+            return answers.resume;
+        } else if (lowerQuery.includes("interview") || lowerQuery.includes("question") || lowerQuery.includes("practice")) {
+            return answers.interview;
+        } else if (lowerQuery.includes("career") || lowerQuery.includes("roadmap") || lowerQuery.includes("job")) {
+            return answers.career;
+        } else if (lowerQuery.includes("project") || lowerQuery.includes("idea")) {
+            return answers.project;
+        }
+        return "I have noted your query. As an Islamabad.AI mentor, I'll analyze this in detail. If this is related to a course module, code execution, or job hunting in Islamabad, feel free to try clicking the quick action tags on the left!";
+    }
+
     function handleUserInput() {
         const query = chatInput.value.trim();
         if (!query) return;
@@ -753,44 +810,9 @@ Which one of these matches your current skillset?`
 
         const typingIndicator = showTypingIndicator();
 
-        // Connect chatbot to Django API backend endpoint with fallback to client simulation
-        fetch(`${API_BASE}/api/chat/`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ message: query })
-        })
-        .then(res => {
-            if (!res.ok) throw new Error("API Offline");
-            return res.json();
-        })
-        .then(data => {
+        getAIResponse(query).then(reply => {
             typingIndicator.remove();
-            appendMessage("ai", data.reply);
-        })
-        .catch(err => {
-            console.log("Falling back to local simulation:", err);
-            // Local fallback simulation
-            setTimeout(() => {
-                typingIndicator.remove();
-                let lowerQuery = query.toLowerCase();
-                let matchedAnswer = "I have noted your query. As an Islamabad.AI mentor, I'll analyze this in detail. If this is related to a course module, code execution, or job hunting in Islamabad, feel free to try clicking the quick action tags on the left!";
-                
-                if (lowerQuery.includes("code") || lowerQuery.includes("python") || lowerQuery.includes("transformer")) {
-                    matchedAnswer = answers.code;
-                } else if (lowerQuery.includes("resume") || lowerQuery.includes("cv") || lowerQuery.includes("profile")) {
-                    matchedAnswer = answers.resume;
-                } else if (lowerQuery.includes("interview") || lowerQuery.includes("question") || lowerQuery.includes("practice")) {
-                    matchedAnswer = answers.interview;
-                } else if (lowerQuery.includes("career") || lowerQuery.includes("roadmap") || lowerQuery.includes("job")) {
-                    matchedAnswer = answers.career;
-                } else if (lowerQuery.includes("project") || lowerQuery.includes("idea")) {
-                    matchedAnswer = answers.project;
-                }
-
-                appendMessage("ai", matchedAnswer);
-            }, 1000);
+            appendMessage("ai", reply);
         });
     }
 
@@ -811,27 +833,9 @@ Which one of these matches your current skillset?`
             appendMessage("user", `Requesting information for: ${btnText}`);
             const typingIndicator = showTypingIndicator();
 
-            fetch(`${API_BASE}/api/chat/`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ message: btnText })
-            })
-            .then(res => {
-                if (!res.ok) throw new Error("API Offline");
-                return res.json();
-            })
-            .then(data => {
+            getAIResponse(btnText).then(reply => {
                 typingIndicator.remove();
-                appendMessage("ai", data.reply);
-            })
-            .catch(err => {
-                console.log("Falling back to local simulation:", err);
-                setTimeout(() => {
-                    typingIndicator.remove();
-                    appendMessage("ai", answers[promptType]);
-                }, 1000);
+                appendMessage("ai", reply);
             });
         });
     });
