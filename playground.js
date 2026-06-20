@@ -163,7 +163,8 @@ print(fibonacci(10))
             consoleOutput.innerHTML = `<span style="color:#38bdf8;">Running script...</span>\n`;
 
             try {
-                const response = await fetch("/api/sandbox/run/", {
+                const API_BASE = window.location.origin;
+                const response = await fetch(`${API_BASE}/api/sandbox/run/`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
