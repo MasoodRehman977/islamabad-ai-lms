@@ -89,10 +89,9 @@ class DBUserProject(Base):
     
     user = relationship("DBUser")
 
-# Automatically create tables in SQLite if they do not exist yet
-Base.metadata.create_all(bind=engine)
-
 def get_db():
+    # Automatically create tables in SQLite if they do not exist yet (lazy execution)
+    Base.metadata.create_all(bind=engine)
     db = SessionLocal()
     try:
         return db
