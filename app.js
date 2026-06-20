@@ -229,11 +229,14 @@ document.addEventListener("DOMContentLoaded", () => {
     initAuth();
     initProfile();
     
-    // Auto-fetch profile data if user session already exists
+    // Redirect user depending on authentication status on run/load
     const loggedInUser = localStorage.getItem("username");
     if (loggedInUser) {
         loadCompletedLessonsState();
         fetchUserDashboardData(loggedInUser);
+        switchView("student-dashboard");
+    } else {
+        switchView("login-page");
     }
     if (window.loadProjects) {
         window.loadProjects();
@@ -1887,7 +1890,7 @@ function initAuth() {
                 if (window.loadProjects) {
                     window.loadProjects();
                 }
-                switchView("landing-page");
+                switchView("login-page");
             } else {
                 switchView("login-page");
             }
