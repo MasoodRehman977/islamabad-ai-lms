@@ -202,7 +202,9 @@ const coursesData = {
 };;
 
 // ==================== APP INITIALIZATION ====================
-const API_BASE = window.location.origin;
+const API_BASE = window.location.hostname.includes("github.io")
+    ? "https://islamabad-ai-lms.onrender.com"
+    : window.location.origin;
 
 document.addEventListener("DOMContentLoaded", () => {
     // ---- Version-based localStorage cache eviction ----

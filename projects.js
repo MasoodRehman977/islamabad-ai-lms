@@ -1,6 +1,8 @@
 // ==================== AI PROJECTS MODULE ====================
 (function initAIProjects() {
-    const API_BASE = window.location.origin;
+    const API_BASE = window.location.hostname.includes("github.io")
+        ? "https://islamabad-ai-lms.onrender.com"
+        : window.location.origin;
 
     let currentProjectId = null;
     let projectsCache = [];

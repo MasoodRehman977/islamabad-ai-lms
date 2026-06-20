@@ -163,7 +163,9 @@ print(fibonacci(10))
             consoleOutput.innerHTML = `<span style="color:#38bdf8;">Running script...</span>\n`;
 
             try {
-                const API_BASE = window.location.origin;
+                const API_BASE = window.location.hostname.includes("github.io")
+                    ? "https://islamabad-ai-lms.onrender.com"
+                    : window.location.origin;
                 const response = await fetch(`${API_BASE}/api/sandbox/run/`, {
                     method: "POST",
                     headers: {
