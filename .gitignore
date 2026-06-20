@@ -28,3 +28,6 @@ media/
 
 # Gemini
 .gemini/
+
+# Internal Agent Data
+brain/

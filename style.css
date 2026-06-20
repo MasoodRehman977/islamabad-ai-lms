@@ -2015,6 +2015,183 @@ a {
     color: var(--text-muted);
 }
 
+/* ==================== DASHBOARD TABS & SANDBOX WORKSPACE ==================== */
+.dash-tab-panel {
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+}
+.dash-tab-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Enrolled courses tab */
+.enrolled-courses-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Sandbox workspace layout */
+.sandbox-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    height: 600px;
+}
+
+.editor-pane, .terminal-pane {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.pane-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 1.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.pane-header span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.editor-lang {
+    color: var(--accent-cyan);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+#code-input {
+    flex-grow: 1;
+    background: rgba(13, 14, 21, 0.6);
+    color: #e2e8f0;
+    font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
+    font-size: 0.95rem;
+    padding: 1.2rem;
+    border: none;
+    resize: none;
+    outline: none;
+    line-height: 1.6;
+}
+
+.terminal-pane {
+    background: #090a0f;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.terminal-output {
+    flex-grow: 1;
+    padding: 1.2rem;
+    margin: 0;
+    color: #22c55e;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    background: transparent;
+    user-select: text;
+}
+
+.btn-clear {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: color 0.2s;
+}
+
+.btn-clear:hover {
+    color: var(--accent-red);
+}
+
+/* Certificate List Cards */
+.certificates-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.cert-list-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cert-list-card:hover {
+    transform: translateY(-3px);
+}
+
+.cert-list-icon {
+    font-size: 2.2rem;
+    color: var(--accent-cyan);
+}
+
+.cert-list-info {
+    flex-grow: 1;
+}
+
+.cert-list-info h4 {
+    margin-bottom: 0.25rem;
+}
+
+.cert-list-info p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.cert-badge-locked {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* Custom interactive checkbox styling for Syllabus list */
+.lesson-list li {
+    cursor: pointer;
+    transition: background 0.2s;
+    user-select: none;
+}
+
+.lesson-list li:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.lesson-completed {
+    color: var(--text-muted);
+}
+
+.lesson-completed i {
+    color: var(--accent-cyan);
+}
+
 /* ==================== RESPONSIVE LAYOUTS ==================== */
 @media (max-width: 1200px) {
     .hero-section {
@@ -2132,4 +2309,267 @@ a {
     .cert-actions {
         flex-direction: column;
     }
+}
+
+/* ==================== PREMIUM FEATURES STYLING ==================== */
+/* 1. Neural Network Visualizer */
+.visualizer-container {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 20px;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 992px) {
+    .visualizer-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+#network-svg {
+    background: rgba(8, 10, 18, 0.95);
+    border-radius: 12px;
+}
+
+/* Neuron Nodes & weight lines */
+.neuron-node {
+    fill: var(--bg-surface);
+    stroke: var(--accent-cyan);
+    stroke-width: 3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.neuron-node.active-pass {
+    fill: var(--accent-cyan);
+    filter: drop-shadow(0 0 8px var(--accent-cyan));
+    stroke: #fff;
+}
+
+.neuron-node:hover {
+    stroke-width: 5px;
+    transform: scale(1.1);
+}
+
+.neuron-text {
+    fill: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    text-anchor: middle;
+    pointer-events: none;
+    font-family: var(--font-secondary);
+}
+
+.weight-line {
+    stroke: rgba(255, 255, 255, 0.12);
+    stroke-linecap: round;
+    transition: stroke 0.3s, stroke-width 0.3s;
+}
+
+.weight-line.active-pulse {
+    stroke: var(--accent-blue);
+    stroke-width: 3px;
+    animation: flowPulse 1.2s infinite linear;
+}
+
+@keyframes flowPulse {
+    0% {
+        stroke-dashoffset: 15;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* 2. Daily Coding Challenge & XP Glow */
+.challenge-card {
+    border: 1px solid rgba(6, 182, 212, 0.3) !important;
+}
+
+.challenge-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+    animation: rotateGlow 15s infinite linear;
+}
+
+@keyframes rotateGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 3. Speech/Voice Mentor Assistant Controls */
+#chat-mic-btn.recording {
+    background: rgba(239, 68, 68, 0.15) !important;
+    border-color: rgba(239, 68, 68, 0.4) !important;
+    color: #ef4444 !important;
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.3);
+    animation: voicePulse 1.2s infinite ease-in-out;
+}
+
+@keyframes voicePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+.speak-bubble-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    margin-left: 8px;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+    vertical-align: middle;
+}
+
+.speak-bubble-btn:hover {
+    color: var(--accent-cyan);
+}
+
+.speak-bubble-btn.speaking {
+    color: #22c55e;
+    animation: speakPulse 1s infinite alternate;
+}
+
+@keyframes speakPulse {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+/* 4. AI Suggest / Loading State */
+#ai-debug-btn:hover {
+    background: rgba(6, 182, 212, 0.1) !important;
+    border-color: rgba(6, 182, 212, 0.3) !important;
+}
+
+#ai-debug-btn.loading i {
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ==================== AUTH PAGES (LOGIN & SIGNUP) ==================== */
+.auth-container {
+    max-width: 480px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+}
+
+.auth-card {
+    padding: 2.5rem;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.auth-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.auth-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-group label i {
+    color: var(--accent-cyan);
+}
+
+.form-group input {
+    background: rgba(13, 14, 21, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+}
+
+.btn-block {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.auth-footer {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.auth-footer a {
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.auth-footer a:hover {
+    color: var(--accent-blue);
+    text-shadow: 0 0 8px rgba(6, 182, 212, 0.4);
+}
+
+.error-msg-box {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.form-group input.input-error {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.35) !important;
+}
+
+.form-group .field-error-msg {
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
 }
